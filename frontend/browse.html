@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse</title>
+  <link rel="stylesheet" href="browse.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="#"> Browse Latest Stories 
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="submit.html">Publish</a>
+        <a href="#" class="active">Browse</a>
+        <a href="profile.html">Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="browse-stories">
+    <div class="container">
+      <h2>Browse Stories</h2>
+      <div class="category-filter">
+        <label for="category-select">Filter by Category:</label>
+        <select id="category-select">
+          <option value="">All Categories</option>
+          <!-- Categories will be added dynamically -->
+        </select>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search stories...">
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="story-grid">
+        <!-- Stories will be dynamically added here -->
+      </div>
+      <div class="pagination">
+        <button id="prev-page" disabled>Previous</button>
+        <span id="current-page">1</span>
+        <button id="next-page">Next</button>
+      </div>
+    </div>
+  </section>
+  <script src="browse.js"></script>
+</body>

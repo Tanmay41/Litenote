@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lite Note</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="profile2.css">
+</head>
+
+<header>
+  <nav>
+    <div class="logo">
+      <a href="#"> Lite Note
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="submit.html">Publish</a>
+        <a href="browse.html">Browse</a>
+        <a href="#" class="active">Profile</a>
+      </div>
+  </nav>
+</header>
+
+
+<section class="user-profile">
+  <div class="container">
+    <div class="profile-header">
+      <div class="profile-image">
+        <img src="https://avatar.iran.liara.run/public/boy?username=JohnDoe" alt="User Avatar">
+      </div>
+      <div class="profile-info">
+        <h2 class="profile-name">John Doe</h2>
+        <p class="profile-bio">I love sharing my life experiences and connecting with others.</p>
+        <div class="profile-stats">
+          <div class="stat">
+            <span class="stat-value">25</span>
+            <span class="stat-label">Stories</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">100</span>
+            <span class="stat-label">Followers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">50</span>
+            <span class="stat-label">Following</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-stories">
+      <h3 class="section-title">John's Stories</h3>
+      <div class="stories-grid">
+        <!-- Dynamically generate user's stories here -->
+        <div class="story-card">
+          <div class="story-card-inner">
+            <div class="story-image">
+              <img id="story-img" src="#" alt="Story Image">
+            </div>
+            <div class="story-content">
+              <h4 class="story-title">A Life-Changing Adventure</h4>
+              <p class="story-category">Travel</p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more story cards as needed -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.getElementById("story-img").src = `https://picsum.photos/${window.innerWidth}/${window.innerHeight}`
+</script>
+
+</html>
