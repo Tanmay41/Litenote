@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import connectToMongoDB from "./DB/connectToDB.js";
@@ -15,6 +16,14 @@ app.use(cookieParser());
 
 // Connect to MongoDB
 connectToMongoDB();
+
+// enable cors
+app.use(
+	cors({
+		origin: "http://localhost:1234",
+		credentials: true,
+	})
+);
 
 // Mount userRouter and storyRouter directly onto the app instance
 app.use("/api/user", userRouter);

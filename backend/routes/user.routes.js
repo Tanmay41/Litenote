@@ -1,4 +1,5 @@
 import express from "express";
+import protectRoute from "./protect.routes.js";
 import User from "../models/user.model.js";
 
 const userRouter = express.Router();
@@ -37,6 +38,9 @@ userRouter.post("/signup", async (req, res) => {
 userRouter.post("/login", async (req, res) => {
 	try {
 		const { username, password } = req.body;
+
+		console.log(req.body);
+
 		const user = await User.findOne({ username, password });
 
 		if (!user) {
@@ -51,6 +55,22 @@ userRouter.post("/login", async (req, res) => {
 	} catch (error) {
 		console.error("Error during login:", error);
 		res.status(500).json({ error: "Internal server error" });
+	}
+});
+
+userRouter.get("/loggedIn", protectRoute, async (req, res) => {
+	try {
+		if (req.userID) {
+			const user = await User.findById(req.userID);
+			if (user) {
+				return res.status(200).json(user);
+			} else {
+				return res.status(404).json({ message: "User not found" });
+			}
+		}
+	} catch (error) {
+		console.log("error in /api/user/loggedIn:", error);
+		return res.status(500).json({ message: "Internal Server Error" });
 	}
 });
 

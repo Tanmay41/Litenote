@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import User from "./user.model.js";
 
 const storySchema = new mongoose.Schema({
 	title: {
@@ -12,9 +11,17 @@ const storySchema = new mongoose.Schema({
 		required: true,
 	},
 	author: {
+		type: mongoose.Schema.Types.ObjectId,
+		required: true,
+		ref: "User",
+	},
+	category: {
 		type: String,
 		required: true,
-		ref: User,
+	},
+	featured: {
+		type: Boolean,
+		default: false,
 	},
 });
 

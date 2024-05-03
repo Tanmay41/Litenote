@@ -71,7 +71,35 @@
 </section>
 
 <script>
-  document.getElementById("story-img").src = `https://picsum.photos/${window.innerWidth}/${window.innerHeight}`
+  function cookiesToJSON() {
+    const cookiePairs = document.cookie.split(';');
+    const cookieEntries = cookiePairs.map(pair => pair.split('='));
+    const cookieMap = new Map(cookieEntries);
+    return Object.fromEntries(cookieMap);
+  }
+
+  const cookiesJSON = cookiesToJSON();
+
+  async function getUserData() {
+    if (cookiesJSON.username) {
+      try {
+        const response = await fetch("http://localhost:3001/api/user/loggedIn");
+        if (response.ok) {
+          const userData = await response.json();
+          console.log(userData);
+        } else {
+          console.error("Failed to fetch user data:", response.status);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    }
+  }
+
+  getUserData();
+
+  document.getElementById("story-img").src = `https://picsum.photos/${window.innerWidth}/${window.innerHeight}`;
 </script>
+
 
 </html>

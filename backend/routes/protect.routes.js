@@ -2,9 +2,9 @@ import User from "../models/user.model.js";
 
 const protectRoute = async (req, res, next) => {
 	try {
-		const { username } = req.cookies;
+		const { username } = await req.cookies;
 
-		const user = await User.findOne({ username });
+		const user = await User.findOne({ username: username });
 
 		if (!user) {
 			return res.status(500).json("Not logged in");

@@ -34,16 +34,8 @@
     <div class="container"> 
       <form id="story-form">
         <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
           <label for="name">Story Title</label>
           <input type="text" id="name" placeholder="Title" required>
-        </div>
-        <div class="form-group">
-          <label for="name">Caption</label>
-          <input type="text" id="name" placeholder="Caption of your Story" required>
         </div>
         <div class="form-group">
           <label for="story">Your Story</label>
@@ -52,8 +44,13 @@
         
         <div class="category-select">
           <select id="category" required>
-            <option value="">Select Category</option>
-            <!-- Dynamically generate category options here -->
+          <option value="">Select Category</option>
+          <option value="">All Categories</option>
+          <option value="">Fiction</option>
+          <option value="">Non-Fiction</option>
+          <option value="">Romance</option>
+          <option value="">Adventure</option>
+          <option value="">Memoir</option>
           </select>
         </div>
         
@@ -61,7 +58,7 @@
       </form>
     </div>
   </section>
-  <script src="submit.js"></script>
+  <script src="submit.js" type="module"></script>
 
 </body>
 </html>
